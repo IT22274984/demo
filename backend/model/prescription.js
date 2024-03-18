@@ -2,11 +2,23 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const prescriptionSchema = new Schema({
-    name:{
-        type:String,
+    Sphere:{
+        type:Number,
         required:true
     },
-    Doctor:{
+    Cylinder:{
+        type:Number,
+        required:true
+    },
+    Axis:{
+        type:Number,
+        required:true
+    },
+    PupilDistance:{
+        type:Number,
+        required:true
+    },
+    Lence:{
         type:String,
         required:true
     },
@@ -14,10 +26,7 @@ const prescriptionSchema = new Schema({
         type:String,
         required:true
     },
-    price:{
-        type:Number,
-        required:true
-    },
+    
 })
 
 module.exports= mongoose.model("prescription",prescriptionSchema);

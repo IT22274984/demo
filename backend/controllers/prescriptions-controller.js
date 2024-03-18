@@ -32,14 +32,16 @@ const getById = async (req, res, next) => {
 };
 
 const addPrescription = async (req, res, next) => {
-  const { name, Doctor, Description, price} = req.body;
+  const { Sphere, Cylinder,Axis,PupilDistance,Lence, Description} = req.body;
   let prescription;
   try {
     prescription = new Prescription({
-      name,
-      Doctor,
-      Description,
-      price,
+      Sphere,
+       Cylinder,
+       Axis,
+       PupilDistance,
+       Lence,
+       Description,
     });
     await prescription.save();
   } catch (err) {
@@ -54,14 +56,16 @@ const addPrescription = async (req, res, next) => {
 
 const updatePrescription = async (req, res, next) => {
   const id = req.params.id;
-  const { name, Doctor, Description, price } = req.body;
+  const { Sphere, Cylinder,Axis,PupilDistance,Lence, Description } = req.body;
   let prescription;
   try {
     prescription = await Prescription.findByIdAndUpdate(id, {
-      name,
-      Doctor,
+      Sphere, 
+      Cylinder,
+      Axis,
+      PupilDistance,
+      Lence, 
       Description,
-      price,
     });
     if (!prescription) {
       return res.status(404).json({ message: "Unable To Update By this ID" });
